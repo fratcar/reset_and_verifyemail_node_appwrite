@@ -15,11 +15,11 @@ anonKey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6I
 // complete verification for the client
 export const updateVerification = async (userId, secret) => {
     try{
-      await _supabase.auth.resend(
+      const response=await _supabase.auth.resend(
         type: OtpType.signup,
         email: widget.userEmail,
       );
-       const response=await account.updateVerification(userId, secret);
+       // const response=await account.updateVerification(userId, secret);
          console.log(response); // Success
             return response;
     }
